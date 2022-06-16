@@ -5,7 +5,8 @@ import '../../../size_config.dart';
 import './pageSelectorTitle.dart';
 
 class PageSelector extends StatefulWidget {
-  const PageSelector({Key? key}) : super(key: key);
+  final Function(bool state) callback;
+  const PageSelector(this.callback, {Key? key}) : super(key: key);
 
   @override
   State<PageSelector> createState() => _PageSelectorState();
@@ -25,7 +26,10 @@ class _PageSelectorState extends State<PageSelector> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               InkWell(
-                onTap: () => setState(() => onFavorites = true),
+                onTap: () {
+                  widget.callback(true);
+                  setState(() => onFavorites = true);
+                },
                 child: PageSelectorTitle(
                   title: "Favorites",
                   isActive: onFavorites,
@@ -33,7 +37,10 @@ class _PageSelectorState extends State<PageSelector> {
               ),
               SizedBox(width: getProporcionalWidth(50)),
               InkWell(
-                onTap: () => setState(() => onFavorites = false),
+                onTap: () {
+                  widget.callback(false);
+                  setState(() => onFavorites = false);
+                },
                 child: PageSelectorTitle(
                   title: "All",
                   isActive: !onFavorites,
