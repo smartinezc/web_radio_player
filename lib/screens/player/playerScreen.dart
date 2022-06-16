@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../model/radio.dart';
 import '../../widgets/backgroundGradient.dart';
 import './components/body.dart';
-// import './components/body2.dart';
 
 
 class PlayerScreen extends StatelessWidget {

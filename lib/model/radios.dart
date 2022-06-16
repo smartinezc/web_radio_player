@@ -11,7 +11,7 @@ class Radios extends ChangeNotifier {
       image: "https://tuftsdaily.com/wp-content/uploads/2021/02/Screen-Shot-2021-02-02-at-3.25.15-PM.png",
       socials: [""],
       audioStream: "https://sc.dattalive.com/8746/stream",
-      isFavorite: true,
+      isFavorite: false,
     ),
     RadioModel(
       id: "Red TL",

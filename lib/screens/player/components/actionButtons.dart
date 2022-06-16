@@ -4,7 +4,8 @@ import '../../../constants.dart';
 
 class ActionButtons extends StatelessWidget {
 
-  const ActionButtons({Key? key}) : super(key: key);
+  final bool isFavorite;
+  const ActionButtons(this.isFavorite, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,10 @@ class ActionButtons extends StatelessWidget {
           ),
           InkWell(
             onTap: () {},
-            child: const Icon(Icons.link),
+            child: Icon(
+              isFavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
+              color: const Color(0xFFAC438E),
+            ),
           ),
         ],
       ),

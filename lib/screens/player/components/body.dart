@@ -50,7 +50,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
         child: Column(
           children: [
             SizedBox(height: getProporcionalHeight(15)),
-            const ActionButtons(),
+            ActionButtons(widget.radio.isFavorite),
             SizedBox(height: getProporcionalHeight(120)),
             RotationTransition(
               turns: _controller,

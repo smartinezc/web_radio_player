@@ -17,7 +17,7 @@ class BackgroundGradient extends StatelessWidget {
       decoration: BoxDecoration(
         image: image != null 
         ? DecorationImage(
-          opacity: 0.25,
+          opacity: 0.15,
           fit: BoxFit.cover,
           image: NetworkImage(image!),
         )
