@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.web_radio_player">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="web_radio_player"
+        android:label="Web Radio Player"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

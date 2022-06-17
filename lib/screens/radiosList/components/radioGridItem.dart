@@ -82,7 +82,6 @@ class _RadioGridItemState extends State<RadioGridItem> {
                   child: Icon(
                     widget.isFavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
                     size: 22,
-                    // color: const Color(0xFFDB00FF),
                     color: const Color(0xFFAC438E),
                   ),
                 ),

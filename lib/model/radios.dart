@@ -23,15 +23,6 @@ class Radios extends ChangeNotifier {
       isFavorite: true,
     ),
     RadioModel(
-      id: "Jazz",
-      frequency: 115.6,
-      name: "Smooth Jazz",
-      image: "https://images.unsplash.com/photo-1599677081334-abd8d806aeb9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      socials: [""],
-      audioStream: "https://kunv.oit.unlv.edu/stream",
-      isFavorite: false,
-    ),
-    RadioModel(
       id: "GayDIO",
       frequency: 105.9,
       name: "Dance Manchester",
@@ -39,6 +30,15 @@ class Radios extends ChangeNotifier {
       socials: [""],
       audioStream: "https://listen-gaydio.sharp-stream.com/gaydionwhq.mp3",
       isFavorite: true,
+    ),
+    RadioModel(
+      id: "Jazz",
+      frequency: 115.6,
+      name: "Smooth Jazz",
+      image: "https://images.unsplash.com/photo-1599677081334-abd8d806aeb9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      socials: [""],
+      audioStream: "https://kunv.oit.unlv.edu/stream",
+      isFavorite: false,
     ),
     RadioModel(
       id: "Depo",
