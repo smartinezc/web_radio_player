@@ -8,7 +8,7 @@ ThemeData theme() {
   return ThemeData(
     scaffoldBackgroundColor: kSecondaryColor,
     primaryColor: kPrimaryColor,
-    // fontFamily: "Poppins",
+    fontFamily: "Poppins",
     appBarTheme: appBarTheme(),
     textTheme: textTheme(),
     inputDecorationTheme: inputDecorationTheme(),

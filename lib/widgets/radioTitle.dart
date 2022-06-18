@@ -20,7 +20,6 @@ class RadioTitle extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        // const SizedBox(),
         Text(
           "${frequency.toStringAsFixed(1)} MHz",
           style: TextStyle(

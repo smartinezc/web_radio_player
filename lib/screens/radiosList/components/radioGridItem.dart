@@ -89,7 +89,7 @@ class _RadioGridItemState extends State<RadioGridItem> {
                   child: Text(
                     widget.name,
                     style: TextStyle(
-                      fontSize: getProporcionalHeight(18),
+                      fontSize: getProporcionalHeight(16),
                       fontWeight: FontWeight.w600,
                     ),
                   ),
