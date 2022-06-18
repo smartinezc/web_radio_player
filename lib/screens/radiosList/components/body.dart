@@ -5,8 +5,7 @@ import '../../../model/radios.dart';
 import '../../../size_config.dart';
 import './actionButtons.dart';
 import './pageSelector.dart';
-// import './radioGrid.dart';
-import './solve.dart';
+import './radioGrid.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);

@@ -12,6 +12,8 @@ class RadioGridItem extends StatefulWidget {
   final String image;
   final bool isFavorite;
   final Function(String id) toggleFavorite;
+  final Function(String id) willPlay;
+  final VoidCallback endPlay;
   const RadioGridItem(
     {
       Key? key,
@@ -21,6 +23,8 @@ class RadioGridItem extends StatefulWidget {
       required this.image,
       required this.isFavorite,
       required this.toggleFavorite,
+      required this.willPlay,
+      required this.endPlay,
     }
   ) : super(key: key);
 
@@ -44,9 +48,11 @@ class _RadioGridItemState extends State<RadioGridItem> {
           },
           onLongPress: () {
             setState(() => isPlaying = true);
+            widget.willPlay(widget.id);
           },
           onLongPressUp: () {
             setState(() => isPlaying = false);
+            widget.endPlay();
           },
           child: AnimatedContainer(
             duration: kAnimationDuration,
@@ -56,7 +62,7 @@ class _RadioGridItemState extends State<RadioGridItem> {
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
               borderRadius: defBorderRadius,
-              color:  const Color(0x4DD2D2D2),
+              color:  const Color(0xFF6BCFAB),
               border: Border.all(color: const Color(0xD924F182), width: 2),
               image: DecorationImage(
                 alignment: isPlaying ? Alignment.center : Alignment.bottomRight,

@@ -15,8 +15,8 @@ class RadiosListScreen extends StatelessWidget {
     sizeConfig.init(context);
     return Scaffold(
       body: Stack(
-        children: [
-          const BackgroundGradient(),
+        children: const [
+          BackgroundGradient(),
           Body(),
         ],
       ),
