@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "848213769558",
+    "project_id": "flutter-portfolio-37fb3",
+    "storage_bucket": "flutter-portfolio-37fb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848213769558:android:7cd4fbf1d07ea930c72af7",
+        "android_client_info": {
+          "package_name": "com.wisecrack.freelancing_agency.web_radio_player"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848213769558-hvqao785ki0ef21k4hrr3anm9cmnbke1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQygMkDriLFHmkuo8xK6wJLvWttKzsRTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848213769558-hvqao785ki0ef21k4hrr3anm9cmnbke1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

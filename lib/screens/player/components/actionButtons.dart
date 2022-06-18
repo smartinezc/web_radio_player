@@ -5,7 +5,8 @@ import '../../../constants.dart';
 class ActionButtons extends StatelessWidget {
 
   final bool isFavorite;
-  const ActionButtons(this.isFavorite, {Key? key}) : super(key: key);
+  final VoidCallback toggleFavorite;
+  const ActionButtons(this.isFavorite, this.toggleFavorite, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class ActionButtons extends StatelessWidget {
             child: const Icon(Icons.arrow_back),
           ),
           InkWell(
-            onTap: () {},
+            onTap: toggleFavorite,
             child: Icon(
               isFavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
               color: const Color(0xFFAC438E),

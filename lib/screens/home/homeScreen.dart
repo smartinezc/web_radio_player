@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Consumer<Radios>(
         builder: (ctx, radiosProvider, constchild) {
-          List radios = radiosProvider.radios;
+          List radios = radiosProvider.getRadios(false);
           imageToDisplay ??= radios[1].image;
           return Stack(
             children: [

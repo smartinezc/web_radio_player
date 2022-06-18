@@ -6,11 +6,23 @@ import '../../../widgets/radioDisc.dart';
 
 class RadioGridItem extends StatefulWidget {
 
+  final String id;
   final String name;
   final double frequency;
   final String image;
   final bool isFavorite;
-  const RadioGridItem({Key? key, required this.name, required this.frequency, required this.image, required this.isFavorite}) : super(key: key);
+  final Function(String id) toggleFavorite;
+  const RadioGridItem(
+    {
+      Key? key,
+      required this.id,
+      required this.name,
+      required this.frequency,
+      required this.image,
+      required this.isFavorite,
+      required this.toggleFavorite,
+    }
+  ) : super(key: key);
 
   @override
   State<RadioGridItem> createState() => _RadioGridItemState();
@@ -79,10 +91,13 @@ class _RadioGridItemState extends State<RadioGridItem> {
                 Positioned(
                   top: getProporcionalHeight(12),
                   right: getProporcionalWidth(12),
-                  child: Icon(
-                    widget.isFavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
-                    size: 22,
-                    color: const Color(0xFFAC438E),
+                  child: InkWell(
+                    onTap: () => widget.toggleFavorite(widget.id),
+                    child: Icon(
+                      widget.isFavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
+                      size: 22,
+                      color: const Color(0xFFAC438E),
+                    ),
                   ),
                 ),
                 if(isPlaying)

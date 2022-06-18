@@ -6,7 +6,8 @@ import './radioGridItem.dart';
 
 class RadioGrid extends StatelessWidget {
   final List radios;
-  const RadioGrid(this.radios, {Key? key}) : super(key: key);
+  final Function(String id) toggleFavorite;
+  const RadioGrid(this.radios, this.toggleFavorite, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +21,12 @@ class RadioGrid extends StatelessWidget {
           runSpacing: getProporcionalHeight(45),
           children: List.generate(radios.length, (n) {
             return RadioGridItem(
+              id: radios[n].id,
               name: radios[n].name,
               frequency: radios[n].frequency,
-              isFavorite: radios[n].isFavorite,
               image: radios[n].image,
+              isFavorite: radios[n].isFavorite,
+              toggleFavorite: toggleFavorite,
             );
           }),
         ),

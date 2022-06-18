@@ -26,7 +26,7 @@ class _BodyState extends State<Body> {
         width: double.infinity,
         child: Consumer<Radios>(
           builder: (ctx, radiosProvider, constchild) {
-            List radios = onFavorites ? radiosProvider.favoritesRadio : radiosProvider.radios;
+            List radios = radiosProvider.getRadios(onFavorites);
             return Column(
               children: [
                 SizedBox(height: getProporcionalHeight(25)),
@@ -34,7 +34,9 @@ class _BodyState extends State<Body> {
                 SizedBox(height: getProporcionalHeight(25)),
                 PageSelector(toggleFavorites),
                 SizedBox(height: getProporcionalHeight(35)),
-                RadioGrid(radios),
+                RadioGrid(radios, (String radioID) {
+                  radiosProvider.toggleFavoriteByID(radioID);
+                }),
               ],
             ); 
           },

@@ -61,9 +61,9 @@ class Radios extends ChangeNotifier {
   ];
 
   // Get radio list, no direct access to _radios properties
-  List<RadioModel> get radios => [... _radios];
-
-  List<RadioModel> get favoritesRadio => _radios.where((radio) => radio.isFavorite).toList();
+  List<RadioModel> getRadios(bool favorites) {
+    return favorites ? _radios.where((radio) => radio.isFavorite).toList() : [... _radios];
+  }
 
   void toggleFavoriteByID(String radioID) {
     _radios.firstWhere((radio) => radio.id == radioID).toggleFavorite();

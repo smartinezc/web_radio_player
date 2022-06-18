@@ -32,6 +32,9 @@ migrate_working_dir/
 .pub/
 /build/
 
+#Android Key related
+**/android/key.properties
+
 # Web related
 lib/generated_plugin_registrant.dart
 

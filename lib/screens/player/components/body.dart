@@ -25,10 +25,13 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
   // late FlutterRadioPlayer radioPlayer;
 
   bool isPlaying = false;
+  bool isFavorite = false;
 
   @override
   void initState() {
     super.initState();
+
+    isFavorite = widget.radio.isFavorite;
 
     _controller = AnimationController(
       vsync: this,
@@ -50,7 +53,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
         child: Column(
           children: [
             SizedBox(height: getProporcionalHeight(15)),
-            ActionButtons(widget.radio.isFavorite),
+            ActionButtons(isFavorite, toggleFavorite),
             SizedBox(height: getProporcionalHeight(120)),
             RotationTransition(
               turns: _controller,
@@ -78,5 +81,10 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
     isPlaying = !isPlaying;
     isPlaying ? _controller.repeat() : _controller.animateTo(1.0);
     // radioPlayer.playOrPause();
+  }
+
+  void toggleFavorite(){
+    widget.radio.toggleFavorite();
+    setState(() => isFavorite = !isFavorite);
   }
 }
