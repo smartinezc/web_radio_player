@@ -45,7 +45,7 @@ class _VolumeControlState extends State<VolumeControl> {
             child: const Icon(Icons.volume_off_rounded),
           ),
           SizedBox(
-            width: getProporcionalWidth(260),
+            width: getProporcionalWidth(250),
             child: Slider(
               value: volume,
               min: 0.0,

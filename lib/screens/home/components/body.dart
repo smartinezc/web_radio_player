@@ -26,6 +26,7 @@ class _BodyState extends State<Body> {
     titleToDisplay ??= RadioTitle(widget.radios[1].name, widget.radios[1].frequency, key: const ValueKey(1));
     return SafeArea(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: getProporcionalHeight(24)),
           const ActionButtons(),
@@ -36,6 +37,8 @@ class _BodyState extends State<Body> {
           ),
           SizedBox(height: getProporcionalHeight(16)),
           AnimatedCarousel(
+            height: 300,
+            width: 350,
             initialIndex: 1,
             onItemChanged: (n) {
               titleToDisplay = RadioTitle(widget.radios[n].name, widget.radios[n].frequency, key: ValueKey(n));
@@ -44,6 +47,7 @@ class _BodyState extends State<Body> {
             },
             children: List<Widget>.generate(widget.radios.length, (n) {
               return InkWell(
+                key: ValueKey(widget.radios[n].id),
                 onTap: () {
                   Navigator.of(context).pushNamed("/radioPlayer", arguments: widget.radios[n]);
                 },

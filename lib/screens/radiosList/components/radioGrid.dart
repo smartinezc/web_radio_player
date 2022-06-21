@@ -28,6 +28,7 @@ class _RadioGridState extends State<RadioGrid> {
           width: double.infinity,
           height: SizeConfig.screenHeight - 200,
           child: Stack(
+            clipBehavior: Clip.none,
             children: stackList,
           ),
         ),

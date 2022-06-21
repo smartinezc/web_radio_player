@@ -18,8 +18,8 @@ const defDuration = Duration(milliseconds: 250);
 const kAnimationDuration = Duration(milliseconds: 200);
 
 // Styling
-final defScreenPadding = EdgeInsets.symmetric(horizontal: getProporcionalWidth(34));
-final defWidgetMargin = EdgeInsets.all(getProporcionalWidth(14));
+const defScreenPadding = EdgeInsets.symmetric(horizontal: 34);
+const defWidgetMargin = EdgeInsets.all(14);
 const defBorderRadius = BorderRadius.all(Radius.circular(20));
 const defBorderCircle = BorderRadius.all(Radius.circular(500));
 final headingStyle = TextStyle(

@@ -77,9 +77,9 @@ class _RadioFrequencyState extends State<RadioFrequency> {
             ),
           ],
         ),
-        SizedBox(height: getProporcionalHeight(70)),
+        SizedBox(height: getProporcionalHeight(60)),
         PlayButton(toggleAnimation),
-        SizedBox(height: getProporcionalHeight(30)),
+        SizedBox(height: getProporcionalHeight(25)),
         const VolumeControl(),
       ], 
     );

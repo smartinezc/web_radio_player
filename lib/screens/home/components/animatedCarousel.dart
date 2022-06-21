@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 
-import '../../../../size_config.dart';
-
-
 class AnimatedCarousel extends StatefulWidget {
 
+  final double height;
+  final double width;
   final List<Widget> children;
   final int initialIndex;
   final Function(int index)? onItemChanged;
-  const AnimatedCarousel({Key? key, required this.children, this.initialIndex = 0, this.onItemChanged}) : super(key: key);
+  const AnimatedCarousel(
+    {
+      Key? key,
+      required this.height,
+      required this.width,
+      required this.children,
+      this.initialIndex = 0,
+      this.onItemChanged,
+    }
+  ) : super(key: key);
 
   @override
   State<AnimatedCarousel> createState() => _AnimatedCarouselState();
@@ -42,8 +50,8 @@ class _AnimatedCarouselState extends State<AnimatedCarousel> with TickerProvider
     )..addStatusListener(updateDisplayChildren);
 
     _leftToRightItem = Tween<Offset>(
-      begin: Offset(getProporcionalWidth(-16), getProporcionalHeight(90)),
-      end: Offset(getProporcionalWidth(287), getProporcionalHeight(90)),
+      begin: Offset(-16, widget.height/3),
+      end: Offset(widget.width-102, widget.height/3),
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -52,8 +60,8 @@ class _AnimatedCarouselState extends State<AnimatedCarousel> with TickerProvider
     );
 
     _rightToCenterItem = Tween<Offset>(
-      begin: Offset(getProporcionalWidth(287), getProporcionalHeight(90)),
-      end: Offset(getProporcionalWidth(68), getProporcionalHeight(36)),
+      begin: Offset(widget.width-102, widget.height/3),
+      end: Offset(widget.width/2-127.5, 0),
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -62,8 +70,8 @@ class _AnimatedCarouselState extends State<AnimatedCarousel> with TickerProvider
     );
 
     _centerToLeftItem = Tween<Offset>(
-      begin: Offset(getProporcionalWidth(68), getProporcionalHeight(36)),
-      end: Offset(getProporcionalWidth(-16), getProporcionalHeight(90)),
+      begin: Offset(widget.width/2-127.5, 0),
+      end: Offset(-16, widget.height/3),
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -72,8 +80,8 @@ class _AnimatedCarouselState extends State<AnimatedCarousel> with TickerProvider
     );
 
     _centerSizeItem = Tween<double>(
-      begin: getProporcionalWidth(0),
-      end: getProporcionalWidth(137),
+      begin: 0,
+      end: 137,
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -87,8 +95,8 @@ class _AnimatedCarouselState extends State<AnimatedCarousel> with TickerProvider
     isReversed ? isReversed = false : _controller.reset();
     return GestureDetector(
       child: SizedBox(
-        height: 300,
-        width: double.infinity,
+        height: widget.height,
+        width: widget.width,
         child: AnimatedBuilder(
           animation: _controller,
           builder: (ctx, constShild) {
@@ -97,9 +105,9 @@ class _AnimatedCarouselState extends State<AnimatedCarousel> with TickerProvider
               children: [
                 // Initial Left Item
                 Positioned(
-                  width: getProporcionalWidth(118),
-                  height: getProporcionalWidth(118),
-                  bottom: _leftToRightItem.value.dy,
+                  width: 118,
+                  height: 118,
+                  top: _leftToRightItem.value.dy,
                   left: _leftToRightItem.value.dx,
                   child: dispChildren[0] < 0 || dispChildren[0] >= widget.children.length
                     ? const CarouselItem()
@@ -108,9 +116,9 @@ class _AnimatedCarouselState extends State<AnimatedCarousel> with TickerProvider
 
                 // Initial Right Item
                 Positioned(
-                  width: getProporcionalWidth(118) + _centerSizeItem.value,
-                  height: getProporcionalWidth(118) + _centerSizeItem.value,
-                  bottom: _rightToCenterItem.value.dy,
+                  width: 118 + _centerSizeItem.value,
+                  height: 118 + _centerSizeItem.value,
+                  top: _rightToCenterItem.value.dy,
                   left: _rightToCenterItem.value.dx,
                   child: dispChildren[2] >= widget.children.length 
                     ? const CarouselItem() 
@@ -119,9 +127,9 @@ class _AnimatedCarouselState extends State<AnimatedCarousel> with TickerProvider
 
                 // Initial Center Item
                 Positioned(
-                  width: getProporcionalWidth(255) - _centerSizeItem.value,
-                  height: getProporcionalWidth(255) - _centerSizeItem.value,
-                  bottom: _centerToLeftItem.value.dy,
+                  width: 255 - _centerSizeItem.value,
+                  height: 255 - _centerSizeItem.value,
+                  top: _centerToLeftItem.value.dy,
                   left: _centerToLeftItem.value.dx,
                   child: dispChildren[1] < 0 
                     ? const CarouselItem() 
