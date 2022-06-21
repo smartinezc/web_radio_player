@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../size_config.dart';
 import '../../../constants.dart';
+import '../../../model/audioPlayer.dart';
 import './radioGridItem.dart';
 
 class RadioGrid extends StatefulWidget {
@@ -15,8 +16,15 @@ class RadioGrid extends StatefulWidget {
 
 class _RadioGridState extends State<RadioGrid> {
 
+  final AudioPlayer player = AudioPlayer.instance; 
   late List<AnimatedPositioned> stackList;
   bool shouldRepaint = true;
+
+  @override
+  void initState() {
+    super.initState();
+    player.changeURL("", false);
+  }
 
   @override
   Widget build(BuildContext context) {

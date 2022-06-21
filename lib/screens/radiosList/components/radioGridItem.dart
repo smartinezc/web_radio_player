@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 import '../../../model/radio.dart';
+import '../../../model/audioPlayer.dart';
 import '../../../widgets/radioDisc.dart';
 
 class RadioGridItem extends StatefulWidget {
@@ -27,6 +28,7 @@ class RadioGridItem extends StatefulWidget {
 
 class _RadioGridItemState extends State<RadioGridItem> {
 
+  final AudioPlayer player = AudioPlayer.instance;
   final ImageProvider waveImage = const AssetImage("assets/img/radioWave.png");
   late ImageProvider radioImage;
   bool isPlaying = false;
@@ -43,10 +45,12 @@ class _RadioGridItemState extends State<RadioGridItem> {
             radioImage = NetworkImage(widget.radio.image);
           },
           onLongPress: () {
+            player.changeURL(widget.radio.audioStream, true);
             setState(() => isPlaying = true);
             widget.willPlay(widget.radio.id);
           },
           onLongPressUp: () {
+            player.togglePlay();
             setState(() => isPlaying = false);
             widget.endPlay();
           },

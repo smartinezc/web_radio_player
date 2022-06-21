@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_radio_player/flutter_radio_player.dart';
 
 import '../../../size_config.dart';
 import '../../../model/radio.dart';
+import '../../../model/audioPlayer.dart';
 import './actionButtons.dart';
 import '../../../widgets/radioDisc.dart';
 import '../../../widgets/radioTitle.dart';
@@ -21,8 +21,8 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
 
+  final AudioPlayer player = AudioPlayer.instance;
   late AnimationController _controller;
-  // late FlutterRadioPlayer radioPlayer;
 
   bool isPlaying = false;
   bool isFavorite = false;
@@ -38,11 +38,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
       duration: const Duration(milliseconds: 3000),
     );
 
-    // radioPlayer = FlutterRadioPlayer();
-    // Future.delayed(Duration.zero, () async {
-    //   await radioPlayer.init("Web Radio Player", "Live", widget.radio.audioStream, "false");
-    // });
-
+    player.changeURL(widget.radio.audioStream, false);
   }
 
   @override
@@ -80,7 +76,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
   void updatePlayingState() {
     isPlaying = !isPlaying;
     isPlaying ? _controller.repeat() : _controller.animateTo(1.0);
-    // radioPlayer.playOrPause();
+    player.togglePlay();
   }
 
   void toggleFavorite(){
