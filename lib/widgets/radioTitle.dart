@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../size_config.dart';
 
 class RadioTitle extends StatelessWidget {
 
@@ -15,15 +14,15 @@ class RadioTitle extends StatelessWidget {
       children: [
         Text(
           name,
-          style: TextStyle(
-            fontSize: getProporcionalHeight(30),
+          style: const TextStyle(
+            fontSize: 28,
             fontWeight: FontWeight.w600,
           ),
         ),
         Text(
           "${frequency.toStringAsFixed(1)} MHz",
-          style: TextStyle(
-            fontSize: getProporcionalHeight(20),
+          style: const TextStyle(
+            fontSize: 18,
           ),
         ),
       ],

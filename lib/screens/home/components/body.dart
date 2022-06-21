@@ -22,8 +22,13 @@ class _BodyState extends State<Body> {
   RadioTitle? titleToDisplay;
 
   @override
+  void initState() {
+    super.initState();
+    titleToDisplay = RadioTitle(widget.radios[1].name, widget.radios[1].frequency, key: ValueKey(widget.radios[1].id));
+  }
+
+  @override
   Widget build(BuildContext context) {
-    titleToDisplay ??= RadioTitle(widget.radios[1].name, widget.radios[1].frequency, key: const ValueKey(1));
     return SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -41,7 +46,7 @@ class _BodyState extends State<Body> {
             width: 350,
             initialIndex: 1,
             onItemChanged: (n) {
-              titleToDisplay = RadioTitle(widget.radios[n].name, widget.radios[n].frequency, key: ValueKey(n));
+              titleToDisplay = RadioTitle(widget.radios[n].name, widget.radios[n].frequency, key: ValueKey(widget.radios[n].id));
               widget.onItemChanged(widget.radios[n].image);
               setState(() {});
             },
