@@ -2,26 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import '../../../model/radio.dart';
 import '../../../widgets/radioDisc.dart';
 
 class RadioGridItem extends StatefulWidget {
 
-  final String id;
-  final String name;
-  final double frequency;
-  final String image;
-  final bool isFavorite;
+  final RadioModel radio;
   final Function(String id) toggleFavorite;
   final Function(String id) willPlay;
   final VoidCallback endPlay;
   const RadioGridItem(
     {
       Key? key,
-      required this.id,
-      required this.name,
-      required this.frequency,
-      required this.image,
-      required this.isFavorite,
+      required this.radio,
       required this.toggleFavorite,
       required this.willPlay,
       required this.endPlay,
@@ -43,20 +36,23 @@ class _RadioGridItemState extends State<RadioGridItem> {
     return Stack(
       children: [
         GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushNamed("/radioPlayer", arguments: widget.radio);
+          },
           onTapDown: (_) {
-            radioImage = NetworkImage(widget.image);
+            radioImage = NetworkImage(widget.radio.image);
           },
           onLongPress: () {
             setState(() => isPlaying = true);
-            widget.willPlay(widget.id);
+            widget.willPlay(widget.radio.id);
           },
           onLongPressUp: () {
             setState(() => isPlaying = false);
             widget.endPlay();
           },
           child: AnimatedContainer(
-            duration: kAnimationDuration,
-            curve: Curves.fastOutSlowIn,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOutBack,
             height: getProporcionalHeight(170),
             width: isPlaying ? getProporcionalWidth(328) : getProporcionalWidth(150),
             clipBehavior: Clip.hardEdge,
@@ -77,7 +73,7 @@ class _RadioGridItemState extends State<RadioGridItem> {
                   top: getProporcionalHeight(12),
                   left: getProporcionalWidth(12),
                   child: Text(
-                    "${widget.frequency.toStringAsFixed(1)} MHz",
+                    "${widget.radio.frequency.toStringAsFixed(1)} MHz",
                     style: TextStyle(
                       fontSize: getProporcionalHeight(12),
                     ),
@@ -87,7 +83,7 @@ class _RadioGridItemState extends State<RadioGridItem> {
                   top: getProporcionalHeight(30),
                   left: getProporcionalWidth(12),
                   child: Text(
-                    widget.name,
+                    widget.radio.name,
                     style: TextStyle(
                       fontSize: getProporcionalHeight(16),
                       fontWeight: FontWeight.w600,
@@ -98,9 +94,9 @@ class _RadioGridItemState extends State<RadioGridItem> {
                   top: getProporcionalHeight(12),
                   right: getProporcionalWidth(12),
                   child: InkWell(
-                    onTap: () => widget.toggleFavorite(widget.id),
+                    onTap: () => widget.toggleFavorite(widget.radio.id),
                     child: Icon(
-                      widget.isFavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
+                      widget.radio.isFavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
                       size: 22,
                       color: const Color(0xFFAC438E),
                     ),
@@ -110,7 +106,7 @@ class _RadioGridItemState extends State<RadioGridItem> {
                 Positioned(
                   top: 0,
                   right: -37,
-                  child: RadioDisc(size: 275, image: widget.image),
+                  child: RadioDisc(size: 275, image: widget.radio.image),
                 ),
               ],
             ),

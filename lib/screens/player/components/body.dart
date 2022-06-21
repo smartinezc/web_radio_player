@@ -54,14 +54,14 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
           children: [
             SizedBox(height: getProporcionalHeight(15)),
             ActionButtons(isFavorite, toggleFavorite),
-            SizedBox(height: getProporcionalHeight(120)),
+            SizedBox(height: getProporcionalHeight(100)),
             RotationTransition(
               turns: _controller,
               child: RadioDisc(size: getProporcionalWidth(275), image: widget.radio.image),
             ),
-            SizedBox(height: getProporcionalHeight(30)),
+            SizedBox(height: getProporcionalHeight(25)),
             RadioTitle(widget.radio.name, widget.radio.frequency),
-            SizedBox(height: getProporcionalHeight(30)),
+            SizedBox(height: getProporcionalHeight(25)),
             PlayButton(updatePlayingState),
             SizedBox(height: getProporcionalHeight(40)),
             const VolumeControl(),

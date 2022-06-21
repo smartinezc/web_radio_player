@@ -45,11 +45,7 @@ class _RadioGridState extends State<RadioGrid> {
         left: n%2 == 0 ? 0 : getProporcionalWidth(170),
         top: (n/2).floorToDouble()*getProporcionalHeight(215),
         child: RadioGridItem(
-          id: widget.radios[n].id,
-          name: widget.radios[n].name,
-          frequency: widget.radios[n].frequency,
-          image: widget.radios[n].image,
-          isFavorite: widget.radios[n].isFavorite,
+          radio: widget.radios[n],
           toggleFavorite: widget.toggleFavorite,
           willPlay: selectedGridItem,
           endPlay: finishPlay,
@@ -59,11 +55,11 @@ class _RadioGridState extends State<RadioGrid> {
   }
 
   void selectedGridItem(String radioID) {
-    AnimatedPositioned last = stackList.firstWhere((pos) => (pos.child as RadioGridItem).id == radioID);
-    stackList.removeWhere((pos) => (pos.child as RadioGridItem).id == radioID);
+    AnimatedPositioned last = stackList.firstWhere((pos) => (pos.child as RadioGridItem).radio.id == radioID);
+    stackList.removeWhere((pos) => (pos.child as RadioGridItem).radio.id == radioID);
     last = AnimatedPositioned(
       key: last.key,
-      duration: const Duration(milliseconds: 150),
+      duration: const Duration(milliseconds: 300),
       curve: Curves.fastOutSlowIn,
       left: 0,
       top: last.top,
