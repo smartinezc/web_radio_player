@@ -6,7 +6,7 @@ class AudioPlayer {
   final FlutterRadioPlayer _player = FlutterRadioPlayer();
 
   AudioPlayer._init() {
-    _player.init("Web Radio Player", "Live Radio", "", "false");
+    _player.init("True Tune", "Live Radio", "", "false");
   }
 
   static AudioPlayer get instance => _instance ??= AudioPlayer._init();

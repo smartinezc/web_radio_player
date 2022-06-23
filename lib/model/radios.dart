@@ -66,8 +66,12 @@ class Radios extends ChangeNotifier {
   }
 
   void toggleFavoriteByID(String radioID) {
-    _radios.firstWhere((radio) => radio.id == radioID).toggleFavorite();
-    notifyListeners();
+    try {
+      _radios.firstWhere((radio) => radio.id == radioID).toggleFavorite();
+      notifyListeners();
+    } on StateError {
+      return;
+    }
   }
 
 }
