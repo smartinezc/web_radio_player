@@ -1,29 +1,16 @@
 <p align="center">
   <a href="https://www.behance.net/gallery/148117955/True-tune-UXUI">
-    <img src="ReadmeFiles/Header.png" alt="Header Image" height="400"/>
+    <img src="ReadmeFiles/Header.png" alt="Header Image" height="700"/>
   </a>
 </p>
 
-## True Tune
+# True Tune
 
 Mobile App concept created using Flutter. A Web-based radio player, with a simple UI and a few custom animations.
 
 ---
 
-### State Management
-
-This App uses Provider as State Management approach
-
-### Packages used
-
-| Dart Package | Version Used | What for? |
-| --- | --- | --- |
-| [Provider](https://pub.dev/packages/provider) | ^6.0.3 | State Management |
-| [Flutter SVG](https://pub.dev/packages/flutter_svg) | ^1.1.0 | Render SVG icons |
-| [Rive](https://pub.dev/packages/rive) | ^0.9.0 | Display SVG animations |
-| [Flutter Radio Player](https://pub.dev/packages/flutter_radio_player) | ^1.1.0 | Manage audio stream state |
-
-## About the App
+### About the App
 
   - True Tune is a Web Radio App where you can find exceptional radio stations!
   
@@ -49,3 +36,16 @@ This App uses Provider as State Management approach
 
 The UI was designed by [Gabriel Rueda](https://www.behance.net/gallery/148117955/True-tune-UXUI). Check out his Behance to find more UI designs and cool illustrations! <br><br>
 [Behance](https://www.behance.net/juandiruedag)  -  [LinkedIn](https://www.linkedin.com/in/juandiegogabrielrueda/)  -  [Pinterest](https://co.pinterest.com/jruedagalvis/)
+
+### State Management
+
+This App uses Provider as State Management approach
+
+### Packages used
+
+| Dart Package | Version Used | What for? |
+| --- | --- | --- |
+| [Provider](https://pub.dev/packages/provider) | ^6.0.3 | State Management |
+| [Flutter SVG](https://pub.dev/packages/flutter_svg) | ^1.1.0 | Render SVG icons |
+| [Rive](https://pub.dev/packages/rive) | ^0.9.0 | Display SVG animations |
+| [Flutter Radio Player](https://pub.dev/packages/flutter_radio_player) | ^1.1.0 | Manage audio stream state |
