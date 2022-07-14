@@ -48,6 +48,6 @@ This App uses Provider as State Management approach
 ### Designer
 
 The UI was designed by [Gabriel Rueda](https://www.behance.net/gallery/148117955/True-tune-UXUI). Check out his Behance to find more UI designs and cool illustrations!
-[Behance] (https://www.behance.net/juandiruedag)
-[LinkedIn] (https://www.linkedin.com/in/juandiegogabrielrueda/)
-[Pinterest] (https://co.pinterest.com/jruedagalvis/)
+[Behance](https://www.behance.net/juandiruedag) <br><br>
+[LinkedIn](https://www.linkedin.com/in/juandiegogabrielrueda/) <br><br>
+[Pinterest](https://co.pinterest.com/jruedagalvis/)
