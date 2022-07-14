@@ -34,8 +34,10 @@ Mobile App concept created using Flutter. A Web-based radio player, with a simpl
 
 ### Designer
 
-The UI was designed by [Gabriel Rueda](https://www.behance.net/gallery/148117955/True-tune-UXUI). Check out his Behance to find more UI designs and cool illustrations! <br><br>
-[Behance](https://www.behance.net/juandiruedag)  -  [LinkedIn](https://www.linkedin.com/in/juandiegogabrielrueda/)  -  [Pinterest](https://co.pinterest.com/jruedagalvis/)
+The UI was designed by [Gabriel Rueda](https://www.behance.net/gallery/148117955/True-tune-UXUI). Check out his socials to find more UI designs and cool illustrations! <br><br>
+[Behance](https://www.behance.net/juandiruedag1)  -  [LinkedIn](https://www.linkedin.com/in/juandiegogabrielrueda/)  -  [Pinterest](https://co.pinterest.com/jruedagalvis/)
+
+---
 
 ### State Management
 
