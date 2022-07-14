@@ -52,6 +52,7 @@ flutter_icons:
   ios: true
   remove_alpha_ios: true
   image_path: "assets/icon/TrueTune.png"
+  image_path_ios: "assets/icon/TrueTune_iOS.png"
   adaptive_icon_background: "#3FC1A0"
   adaptive_icon_foreground: "assets/icon/TrueTuneIcon.png"
 

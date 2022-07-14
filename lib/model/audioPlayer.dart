@@ -1,21 +1,19 @@
 import 'package:flutter_radio_player/flutter_radio_player.dart';
 
 class AudioPlayer {
-
   static AudioPlayer? _instance;
   final FlutterRadioPlayer _player = FlutterRadioPlayer();
 
   AudioPlayer._init() {
-    _player.init("True Tune", "Live Radio", "", "false");
+    _player.init("True Tune", "Live Radio", "a", "false");
   }
 
   static AudioPlayer get instance => _instance ??= AudioPlayer._init();
 
   Future<void> changeURL(String url, bool playNow) async {
-    return _player.pause()
-      .then((state) {
-        return _player.setUrl(url, "$playNow");
-      });
+    return _player.pause().then((state) {
+      return _player.setUrl(url, "$playNow");
+    });
   }
 
   void togglePlay() {

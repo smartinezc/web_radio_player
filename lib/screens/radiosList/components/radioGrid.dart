@@ -8,22 +8,22 @@ import './radioGridItem.dart';
 class RadioGrid extends StatefulWidget {
   final List radios;
   final Function(String id) toggleFavorite;
-  const RadioGrid(this.radios, this.toggleFavorite, {Key? key}) : super(key: key);
+  const RadioGrid(this.radios, this.toggleFavorite, {Key? key})
+      : super(key: key);
 
   @override
   State<RadioGrid> createState() => _RadioGridState();
 }
 
 class _RadioGridState extends State<RadioGrid> {
-
-  final AudioPlayer player = AudioPlayer.instance; 
+  final AudioPlayer player = AudioPlayer.instance;
   late List<AnimatedPositioned> stackList;
   bool shouldRepaint = true;
 
   @override
   void initState() {
     super.initState();
-    player.changeURL("", false);
+    player.changeURL("a", false);
   }
 
   @override
@@ -50,8 +50,8 @@ class _RadioGridState extends State<RadioGrid> {
         key: ValueKey(n),
         duration: kAnimationDuration,
         curve: Curves.fastOutSlowIn,
-        left: n%2 == 0 ? 0 : getProporcionalWidth(170),
-        top: (n/2).floorToDouble()*getProporcionalHeight(215),
+        left: n % 2 == 0 ? 0 : getProporcionalWidth(170),
+        top: (n / 2).floorToDouble() * getProporcionalHeight(215),
         child: RadioGridItem(
           radio: widget.radios[n],
           toggleFavorite: widget.toggleFavorite,
@@ -63,8 +63,10 @@ class _RadioGridState extends State<RadioGrid> {
   }
 
   void selectedGridItem(String radioID) {
-    AnimatedPositioned last = stackList.firstWhere((pos) => (pos.child as RadioGridItem).radio.id == radioID);
-    stackList.removeWhere((pos) => (pos.child as RadioGridItem).radio.id == radioID);
+    AnimatedPositioned last = stackList
+        .firstWhere((pos) => (pos.child as RadioGridItem).radio.id == radioID);
+    stackList
+        .removeWhere((pos) => (pos.child as RadioGridItem).radio.id == radioID);
     last = AnimatedPositioned(
       key: last.key,
       duration: const Duration(milliseconds: 300),
